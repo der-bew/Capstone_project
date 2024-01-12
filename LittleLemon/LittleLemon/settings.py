@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Restaurant',
-    'rest_framework',
-    'djoser',
+    #'rest_framework',
+    #'djoser',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'LittleLemon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,15 +75,27 @@ WSGI_APPLICATION = 'LittleLemon.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    } 
 }
-
-
+'''
+DATABASES = {  
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'LittleLemon',
+        'USER': 'derbew',
+        'PASSWORD': 'Little@123',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            }
+        },
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -119,6 +131,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    'Restaurant/static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
