@@ -1,2 +1,2 @@
 # Capstone_project
-This project is created for backend development using Django thought by Meta.
+This capstone project, developed as part of Meta's backend development course using Django, showcases my mastery of the framework.
